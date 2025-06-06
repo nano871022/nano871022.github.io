@@ -11,7 +11,8 @@ jobs:
      run: echo "${{ secrets.USER }}"
 
    - name: checkout
-     run: actions/checkout@v4
+     uses: actions/checkout@v4
+     
 
     
        
