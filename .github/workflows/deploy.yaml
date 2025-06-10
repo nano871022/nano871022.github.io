@@ -22,7 +22,7 @@ jobs:
      uses: actions/checkout@v4
 
    - name: gotofolder
-     run: cd pages
+     run: cd pages | pwd
 
    - name: install
      run: npm install
