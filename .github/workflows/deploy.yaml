@@ -25,6 +25,7 @@ jobs:
           npm install -g @angular/cli
           npm install
           npm run build
+          pwd
 
    - name: Deploy
      if: success()
