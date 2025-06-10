@@ -26,7 +26,7 @@ jobs:
           npm install
           npm run build
           pwd
-          ls dist/pages
+          ls dist/pages/browser
 
    - name: Deploy
      if: success()
