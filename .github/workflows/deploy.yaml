@@ -10,8 +10,33 @@ jobs:
    - name: Print Variable
      run: echo "${{ secrets.USER }}"
 
+   - name: getnvm
+     uses: dcodeIO/setup-node-nvm@master
+     with:
+       node-version: lts/*
+
+   - name: getangular
+     run: npm install -g @angular/cli
+
    - name: checkout
      uses: actions/checkout@v4
+
+   - name: gotofolder
+     run: cd pages
+
+   - name: install
+     run: npm install
+
+   - name: build
+     run: npm run build:prod
+
+   - name: Deploy
+     if: success()
+     uses: peaceiris/actions-gh-pages@v3
+     with:
+       github_token: ${{ secrets.GITHUB_TOKEN }}
+       publish_dir: ./dist/pages
+       enable_jekyll: true
      
 
     

@@ -1,0 +1,9 @@
+name: project
+services:
+  pagenano871022:
+    build: .
+    volumes:
+      - /home/alejo/git/nano871022.github.io:/project/code
+      - /home/alejo/git/nano871022.github.io/log:/project/logs
+    ports:
+      - "8090:5000"
