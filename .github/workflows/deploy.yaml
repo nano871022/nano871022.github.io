@@ -15,20 +15,16 @@ jobs:
      with:
        node-version: lts/*
 
-   - name: getangular
-     run: npm install -g @angular/cli
 
    - name: checkout
      uses: actions/checkout@v4
 
-   - name: gotofolder
-     run: cd pages | pwd | ls
-
-   - name: install
-     run: npm install
-
-   - name: build
-     run: npm run build:prod
+   - name: prepare
+     run: |
+          cd pages
+          run: npm install -g @angular/cli
+          npm install
+          npm run build:prod
 
    - name: Deploy
      if: success()
