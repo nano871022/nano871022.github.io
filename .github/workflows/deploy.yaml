@@ -2,6 +2,11 @@ name: Deploy
 
 on: push
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
  first_job:
   runs-on: ubuntu-latest
