@@ -7,14 +7,10 @@ jobs:
   runs-on: ubuntu-latest
 
   steps:
-   - name: Print Variable
-     run: echo "${{ secrets.USER }}"
-
    - name: getnvm
      uses: dcodeIO/setup-node-nvm@master
      with:
        node-version: lts/*
-
 
    - name: checkout
      uses: actions/checkout@v4
@@ -25,16 +21,13 @@ jobs:
           npm install -g @angular/cli
           npm install
           npm run build -- --base-href https://${{ github.actor }}.github.io/${{ github.event.repository.name }}/
-          pwd
-          ls dist/pages/browser
-          ls
 
    - name: Deploy
      if: success()
      uses: peaceiris/actions-gh-pages@v3
      with:
        github_token: ${{ secrets.GITHUB_TOKEN }}
-       publish_dir: pages/dist/pages/browser
+       publish_dir: pages/dist/pages
        enable_jekyll: true
 
     
