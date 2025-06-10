@@ -22,7 +22,7 @@ jobs:
    - name: prepare
      run: |
           cd pages
-          run: npm install -g @angular/cli
+          npm install -g @angular/cli
           npm install
           npm run build:prod
 
