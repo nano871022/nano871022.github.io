@@ -69,7 +69,7 @@ jobs:
      if: success()
      uses: actions/upload-pages-artifact@v3.0.1
      with:
-      name: ${{ github.actor }}
+      name: ${{ github.actor }}-pages
       id: build-artifact
       path: pages/dist/pages/browser
    
@@ -86,7 +86,7 @@ jobs:
    - name: deploy to github pages
      uses: actions/deploy-pages@v4
      with:
-      name: ${{ github.actor }}
+      name: ${{ github.actor }}-pages
     
    - name: finished
      run: echo "### DEPLOYED ::rocket::" >> $GITHUB_STEP_SUMMARY
