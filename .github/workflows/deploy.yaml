@@ -70,7 +70,6 @@ jobs:
      uses: actions/upload-pages-artifact@v3.0.1
      with:
       name: ${{ github.actor }}-pages
-      id: build-artifact
       path: pages/dist/pages/browser
    
  deploy-pages:
