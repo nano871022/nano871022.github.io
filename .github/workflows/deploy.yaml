@@ -40,7 +40,7 @@ jobs:
           npm run build -- --base-href https://${{ github.actor }}.github.io/${{ github.event.repository.name }}/
 
    - name: Save in Artifact
-     uses: actions/upload-artifact@4
+     uses: actions/upload-artifact@4.6.2
      with: 
       name: build-page-${{ github.actor }}
       path: pages/dist/pages
