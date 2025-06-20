@@ -61,7 +61,7 @@ jobs:
    - name: get artifact  
      uses: actions/download-artifact@v4
      with:
-       name: build-page-${{ github-actor }}
+       name: build-page-${{ github.actor }}
        path: pages/dist/pages
      
    - name: Deploy
