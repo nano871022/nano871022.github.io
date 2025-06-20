@@ -73,14 +73,19 @@ jobs:
       path: pages/dist/pages/browser
    
  deploy-pages:
-  environment:
-   name: ${{ github.actor }}-pages
+ 
   needs:  prepared-artifact-pages
+  
   if: success()
+  
   runs-on: ubuntu-latest
+  
   concurrency:
     group: prepare-${{ github.ref }}
     cancel-in-progress: true
+
+  environment:
+    name: ${{ github.actor }}-pages
 
   steps:
 
