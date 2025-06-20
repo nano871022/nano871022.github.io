@@ -13,6 +13,9 @@ permissions:
 jobs:
  first_job:
   runs-on: ubuntu-latest
+  concurrency:
+    group: example-group
+    cancel-in-progress: true
 
   steps:
    - name: getnvm
@@ -22,6 +25,12 @@ jobs:
 
    - name: checkout
      uses: actions/checkout@v4
+
+   - name: caching
+     uses: actions/cache@v4
+     with:
+       path: node_modules
+       key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
 
    - name: prepare
      run: |
@@ -39,6 +48,6 @@ jobs:
        enable_jekyll: true
    
    - name: finished
-     run: echo "### DEPLOYED :::rocket:::" >> $GITHUB_STEP_SUMMARY
+     run: echo "### DEPLOYED ::rocket::" >> $GITHUB_STEP_SUMMARY
     
        
