@@ -85,12 +85,14 @@ jobs:
     cancel-in-progress: true
 
   environment:
-    name: ${{ github.actor }}-pages
+   name: github-pages
 
   steps:
 
    - name: deploy to github pages
      uses: actions/deploy-pages@v4
+     with:
+      artifactName: ${{ github.actor }}-pages
     
    - name: finished
      run: echo "### DEPLOYED ::rocket::" >> $GITHUB_STEP_SUMMARY
