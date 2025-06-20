@@ -29,7 +29,7 @@ jobs:
    - name: caching
      uses: actions/cache@v4
      with:
-       path: node_modules
+       path: pages/node_modules
        key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
 
    - name: prepare
