@@ -39,6 +39,6 @@ jobs:
        enable_jekyll: true
    
    - name: finished
-     run: echo "### DEPLOYED :::rocket:" >> $GITHUB_STEP_SUMMARY
+     run: echo "### DEPLOYED :::rocket:::" >> $GITHUB_STEP_SUMMARY
     
        
