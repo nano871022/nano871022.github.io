@@ -86,7 +86,7 @@ jobs:
    - name: deploy to github pages
      uses: actions/deploy-pages@v4
      with:
-      name: ${{ github.actor }}-pages
+      artifact_name: ${{ github.actor }}-pages
     
    - name: finished
      run: echo "### DEPLOYED ::rocket::" >> $GITHUB_STEP_SUMMARY
