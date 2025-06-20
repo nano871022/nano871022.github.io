@@ -65,7 +65,7 @@ jobs:
        name: build-page-${{ github.actor }}
        path: pages/dist/pages
      
-   - name: Deploy
+   - name: Upload Artifact Pages
      if: success()
      uses: actions/upload-pages-artifact@v3.0.1
      with:
