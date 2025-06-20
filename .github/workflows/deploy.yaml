@@ -11,7 +11,8 @@ permissions:
   id-token: write
 
 jobs:
- first_job:
+ 
+ build-pages:
   runs-on: ubuntu-latest
   concurrency:
     group: example-${{ github.ref }}
@@ -45,12 +46,12 @@ jobs:
       name: build-page-${{ github.actor }}
       path: pages/dist/pages
 
- second_job_deploy:
-  needs: first_job
+ prepared-artifact-pages:
+  needs: build-pages
   if: success()
   runs-on: ubuntu-latest
   concurrency:
-    group: deploy-${{ github.ref }}
+    group: prepare-${{ github.ref }}
     cancel-in-progress: true
 
   steps:
@@ -69,9 +70,23 @@ jobs:
      uses: actions/upload-pages-artifact@v3.0.1
      with:
       name: ${{ github.actor }}
+      id: build-artifact
       path: pages/dist/pages/browser
    
+ deploy-pages:
+  needs:  prepared-artifact-pages
+  if: success()
+  runs-on: ubuntu-latest
+  concurrency:
+    group: prepare-${{ github.ref }}
+    cancel-in-progress: true
+
+  steps:
+
+   - name: deploy to github pages
+     uses: actions/deploy-pages@v4
+     with:
+      name: ${{ github.actor }}
+    
    - name: finished
      run: echo "### DEPLOYED ::rocket::" >> $GITHUB_STEP_SUMMARY
-    
-       
