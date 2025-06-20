@@ -69,7 +69,7 @@ jobs:
      uses: actions/upload-pages-artifact@v3.0.1
      with:
       name: ${{ github.actor }}
-      publish_dir: pages/dist/pages/browser
+      path: pages/dist/pages/browser
    
    - name: finished
      run: echo "### DEPLOYED ::rocket::" >> $GITHUB_STEP_SUMMARY
