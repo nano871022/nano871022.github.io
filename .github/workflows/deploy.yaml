@@ -37,6 +37,8 @@ jobs:
        github_token: ${{ secrets.GITHUB_TOKEN }}
        publish_dir: pages/dist/pages/browser
        enable_jekyll: true
-
+   
+   - name: finished
+     run: echo "### DEPLOYED :::rocket:" >> $GITHUB_STEP_SUMMARY
     
        
