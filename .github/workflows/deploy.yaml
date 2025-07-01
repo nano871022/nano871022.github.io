@@ -41,37 +41,11 @@ jobs:
      uses: actions/upload-artifact@4.6.2
      with: 
       name: build-page-${{ github.actor }}
-      path: pages/dist/pages
-
- prepared-artifact-pages:
-  needs: build-pages
-  if: success()
-  runs-on: ubuntu-latest
-  concurrency:
-    group: prepare-${{ github.ref }}
-    cancel-in-progress: true
-
-  steps:
-
-   - name: checkout
-     uses: actions/checkout@v4
-     
-   - name: get artifact  
-     uses: actions/download-artifact@v4.3.0
-     with:
-       name: build-page-${{ github.actor }}
-       path: pages/dist/pages
-     
-   - name: Upload Artifact Pages
-     if: success()
-     uses: actions/upload-pages-artifact@v3.0.1
-     with:
-      name: ${{ github.actor }}-pages
       path: pages/dist/pages/browser
    
  deploy-pages:
  
-  needs:  prepared-artifact-pages
+  needs:  build-pages
   permissions:
    contents: write
    pages: write
@@ -93,7 +67,7 @@ jobs:
    - name: deploy to github pages
      uses: actions/deploy-pages@v4
      with:
-      artifact_name: ${{ github.actor }}-pages
+      artifact_name: build-page-${{ github.actor }}
     
    - name: finished
      run: echo "### DEPLOYED ::rocket::" >> $GITHUB_STEP_SUMMARY
