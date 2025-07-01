@@ -1,0 +1,30 @@
+.about-me-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.bio-section p {
+  line-height: 1.6;
+}
+.skills-section ul, .links-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+.skills-section li, .links-section li {
+  margin-bottom: 8px;
+}
+.links-section a {
+  text-decoration: none;
+  color: #007bff;
+}
+.links-section a:hover {
+  text-decoration: underline;
+}
+.social-icon-img {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+/* Add classes for specific icons if using an icon font like Font Awesome */
+/* e.g., .fa-linkedin, .fa-github */

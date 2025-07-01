@@ -1,0 +1,21 @@
+<div>
+  <h2 i18n="Heading for the list of projects@@projectListHeading">My Projects</h2>
+  <ul *ngIf="projects && projects.length > 0; else noProjects">
+    <li *ngFor="let project of projects" class="project-item">
+      <h3>
+        <a [routerLink]="['/projects', project.id]">{{ project.name }}</a>
+        <!-- project.name is dynamic data, not marked -->
+        <span class="project-status">({{ project.status }})</span> <!-- project.status is dynamic data -->
+      </h3>
+      <p>{{ project.description }}</p> <!-- project.description is dynamic data -->
+      <div *ngIf="project.technologies && project.technologies.length > 0">
+        <strong i18n="Label for technologies list in a project@@projectListTechLabel">Technologies:</strong> {{ project.technologies.join(', ') }}
+      </div>
+      <!-- We can add related links and images later if desired -->
+      <hr />
+    </li>
+  </ul>
+  <ng-template #noProjects>
+    <p i18n="Message displayed when there are no projects to show@@projectListNoProjects">No projects to display yet.</p>
+  </ng-template>
+</div>

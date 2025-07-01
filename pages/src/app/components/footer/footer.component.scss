@@ -1,0 +1,10 @@
+footer {
+  background-color: #f1f1f1;
+  color: #333;
+  padding: 1.5em 1em; /* Slightly more padding for better visual */
+  text-align: center;
+  /* position: fixed; removed */
+  /* bottom: 0; removed */
+  /* width: 100%; removed, flex container will manage width */
+  flex-shrink: 0; /* Prevent footer from shrinking if content is too large */
+}
