@@ -4,12 +4,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --configuration production --base-href /pages/",
+    "build": "ng build --configuration production --base-href /your-repo-name/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build:i18n": "ng build --configuration production --base-href /pages/",
-    "build:en": "ng build --configuration production --base-href /pages/ --localize en-US",
-    "build:es": "ng build --configuration production --base-href /pages/es/ --localize es-ES",
+    "build:i18n": "ng build --configuration production --base-href /your-repo-name/",
+    "build:en": "ng build --configuration production --base-href /your-repo-name/ --localize en-US",
+    "build:es": "ng build --configuration production --base-href /your-repo-name/es/ --localize es-ES",
     "serve:en": "ng serve --configuration=development --host 0.0.0.0 --port 4200 --open --locale en-US",
     "serve:es": "ng serve --configuration=development --host 0.0.0.0 --port 4201 --open --locale es-ES",
     "serve:ssr:pages": "node dist/pages/server/server.mjs"
