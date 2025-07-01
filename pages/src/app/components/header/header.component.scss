@@ -1,0 +1,28 @@
+header {
+  background-color: #333;
+  color: white;
+  padding: 0.5em 1em;
+  display: flex;
+  justify-content: center; /* Center nav items */
+}
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+nav ul li {
+  margin: 0 15px;
+}
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5em 0;
+}
+nav ul li a:hover {
+  text-decoration: underline;
+}
+.active-link {
+  font-weight: bold;
+  border-bottom: 2px solid #fff; /* Or any other style for active link */
+}

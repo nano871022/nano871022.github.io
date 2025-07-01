@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif; /* Basic font stack */
+  box-sizing: border-box; /* Better box model */
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Ensure app-root and main content area allow footer to be pushed down */
+app-root { /* This is the selector for the App component */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Use viewport height */
+}
+
+main { /* Assuming <main> tag is used for primary content in app.html */
+  flex: 1; /* Allows main content to grow and push footer down */
+  padding-bottom: 80px; /* Add padding to prevent overlap with fixed footer; adjust if footer height changes */
+}
+
+/* Basic link styling */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Basic heading styles (optional, can be more specific) */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}

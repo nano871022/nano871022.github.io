@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template" target-language="es-ES">
+    <body>
+      <trans-unit id="aboutMeHeading" datatype="html">
+        <source>About Me</source>
+        <target>Sobre Mí</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/about-me/about-me.component.html</context>
+          <context context-type="linenumber">2,4</context>
+        </context-group>
+        <note priority="1" from="description">Main heading for the About Me page</note>
+      </trans-unit>
+      <trans-unit id="aboutMeBackgroundHeading" datatype="html">
+        <source>My Background</source>
+        <target>Mi Trayectoria</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/about-me/about-me.component.html</context>
+          <context context-type="linenumber">4,8</context>
+        </context-group>
+        <note priority="1" from="description">Subheading for My Background section</note>
+      </trans-unit>
+      <trans-unit id="aboutMeSkillsHeading" datatype="html">
+        <source>Skills</source>
+        <target>Habilidades</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/about-me/about-me.component.html</context>
+          <context context-type="linenumber">9,11</context>
+        </context-group>
+        <note priority="1" from="description">Subheading for Skills section</note>
+      </trans-unit>
+      <trans-unit id="aboutMeConnectHeading" datatype="html">
+        <source>Connect with Me</source>
+        <target>Conecta Conmigo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/about-me/about-me.component.html</context>
+          <context context-type="linenumber">16,19</context>
+        </context-group>
+        <note priority="1" from="description">Subheading for Connect with Me section</note>
+      </trans-unit>
+      <trans-unit id="footerCopyright" datatype="html">
+        <source>© 2024 Your Name. All rights reserved.</source>
+        <target>© 2024 Tu Nombre. Todos los derechos reservados.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
+          <context context-type="linenumber">2,5</context>
+        </context-group>
+        <note priority="1" from="description">Copyright notice in the footer. 'Your Name' should be replaced by the site owner's name.</note>
+      </trans-unit>
+      <trans-unit id="headerNavHome" datatype="html">
+        <source>Home</source>
+        <target>Inicio</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/header/header.component.html</context>
+          <context context-type="linenumber">4,5</context>
+        </context-group>
+        <note priority="1" from="description">Navigation link to Home page</note>
+      </trans-unit>
+      <trans-unit id="headerNavProjects" datatype="html">
+        <source>Projects</source>
+        <target>Proyectos</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/header/header.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+        <note priority="1" from="description">Navigation link to Projects page</note>
+      </trans-unit>
+      <trans-unit id="headerNavAboutMe" datatype="html">
+        <source>About Me</source>
+        <target>Sobre Mí</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/header/header.component.html</context>
+          <context context-type="linenumber">6,10</context>
+        </context-group>
+        <note priority="1" from="description">Navigation link to About Me page</note>
+      </trans-unit>
+      <trans-unit id="homeWelcomeHeading" datatype="html">
+        <source>Welcome to My Portfolio!</source>
+        <target>¡Bienvenido/a a Mi Portafolio!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/home/home.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+        <note priority="1" from="description">Main welcome heading on the home page</note>
+      </trans-unit>
+      <trans-unit id="homeIntroParagraph" datatype="html">
+        <source>This is the home page. Navigate to other sections using the header.</source>
+        <target>Esta es la página de inicio. Navega a otras secciones usando el encabezado.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/home/home.component.html</context>
+          <context context-type="linenumber">3,5</context>
+        </context-group>
+        <note priority="1" from="description">Introductory paragraph on the home page</note>
+      </trans-unit>
+      <trans-unit id="projectDetailBackButton" datatype="html">
+        <source>Back to List</source>
+        <target>Volver a la Lista</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/project-detail/project-detail.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+        <note priority="1" from="description">Button to navigate back to the projects list</note>
+      </trans-unit>
+      <trans-unit id="projectDetailTechLabel" datatype="html">
+        <source>Technologies:</source>
+        <target>Tecnologías:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/project-detail/project-detail.component.html</context>
+          <context context-type="linenumber">8,11</context>
+        </context-group>
+        <note priority="1" from="description">Label for technologies list in project detail</note>
+      </trans-unit>
+      <trans-unit id="projectDetailRepoLabel" datatype="html">
+        <source>Repository:</source>
+        <target>Repositorio:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/project-detail/project-detail.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <note priority="1" from="description">Label for project repository link</note>
+      </trans-unit>
+      <trans-unit id="projectDetailPreviewLabel" datatype="html">
+        <source>Preview:</source>
+        <target>Vista Previa:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/project-detail/project-detail.component.html</context>
+          <context context-type="linenumber">16,17</context>
+        </context-group>
+        <note priority="1" from="description">Label for project preview image</note>
+      </trans-unit>
+      <trans-unit id="projectDetailArchDiagLabel" datatype="html">
+        <source>Architecture Diagram:</source>
+        <target>Diagrama de Arquitectura:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/project-detail/project-detail.component.html</context>
+          <context context-type="linenumber">21,22</context>
+        </context-group>
+        <note priority="1" from="description">Label for project architecture diagram</note>
+      </trans-unit>
+      <trans-unit id="projectDetailRelatedLinksLabel" datatype="html">
+        <source>Related Links:</source>
+        <target>Enlaces Relacionados:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/project-detail/project-detail.component.html</context>
+          <context context-type="linenumber">26,29</context>
+        </context-group>
+        <note priority="1" from="description">Label for related links section</note>
+      </trans-unit>
+      <trans-unit id="projectDetailNotFound" datatype="html">
+        <source>Project not found.</source>
+        <target>Proyecto no encontrado.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/project-detail/project-detail.component.html</context>
+          <context context-type="linenumber">39,40</context>
+        </context-group>
+        <note priority="1" from="description">Message displayed when a project is not found</note>
+      </trans-unit>
+      <trans-unit id="projectDetailLoading" datatype="html">
+        <source>Loading project details...</source>
+        <target>Cargando detalles del proyecto...</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/project-detail/project-detail.component.html</context>
+          <context context-type="linenumber">40,42</context>
+        </context-group>
+        <note priority="1" from="description">Message displayed while project details are loading</note>
+      </trans-unit>
+      <trans-unit id="projectListHeading" datatype="html">
+        <source>My Projects</source>
+        <target>Mis Proyectos</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/project-list/project-list.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+        <note priority="1" from="description">Heading for the list of projects</note>
+      </trans-unit>
+      <trans-unit id="projectListTechLabel" datatype="html">
+        <source>Technologies:</source>
+        <target>Tecnologías:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/project-list/project-list.component.html</context>
+          <context context-type="linenumber">12,14</context>
+        </context-group>
+        <note priority="1" from="description">Label for technologies list in a project</note>
+      </trans-unit>
+      <trans-unit id="projectListNoProjects" datatype="html">
+        <source>No projects to display yet.</source>
+        <target>No hay proyectos para mostrar aún.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/projects/project-list/project-list.component.html</context>
+          <context context-type="linenumber">19,22</context>
+        </context-group>
+        <note priority="1" from="description">Message displayed when there are no projects to show</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
