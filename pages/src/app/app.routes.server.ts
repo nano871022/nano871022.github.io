@@ -11,7 +11,7 @@ export const serverRoutes: ServerRoute[] = [
     path: 'projects/:id',
     renderMode: RenderMode.Prerender, // Explicitly set prerender for this route
     getPrerenderParams: () => {
-      return projectIdsToPrerender.map(id => ({ id }));
+      return Promise.resolve(projectIdsToPrerender.map(id => ({ id })));
     }
   },
   {
