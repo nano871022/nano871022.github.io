@@ -6,11 +6,6 @@ on:
     branches:
       - master
 
-permissions:
-  contents: write
-  pages: write
-  id-token: write
-
 jobs:
  
  build-pages:
@@ -77,6 +72,10 @@ jobs:
  deploy-pages:
  
   needs:  prepared-artifact-pages
+  permissions:
+   contents: write
+   pages: write
+   id-token: write
   
   if: success()
   
