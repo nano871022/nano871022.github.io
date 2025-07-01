@@ -4,9 +4,14 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --configuration production --base-href /your-repo-name/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "build:i18n": "ng build --configuration production --base-href /your-repo-name/",
+    "build:en": "ng build --configuration production --base-href /your-repo-name/ --localize en-US",
+    "build:es": "ng build --configuration production --base-href /your-repo-name/es/ --localize es-ES",
+    "serve:en": "ng serve --configuration=development --host 0.0.0.0 --port 4200 --open --locale en-US",
+    "serve:es": "ng serve --configuration=development --host 0.0.0.0 --port 4201 --open --locale es-ES",
     "serve:ssr:pages": "node dist/pages/server/server.mjs"
   },
   "private": true,
@@ -27,6 +32,7 @@
     "@angular/build": "^20.0.1",
     "@angular/cli": "^20.0.1",
     "@angular/compiler-cli": "^20.0.0",
+    "@angular/localize": "^20.0.2",
     "@types/express": "^5.0.1",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^20.17.19",

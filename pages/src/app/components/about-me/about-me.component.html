@@ -1,0 +1,27 @@
+<div class="about-me-container">
+  <h2 i18n="Main heading for the About Me page@@aboutMeHeading">About Me</h2>
+  <section class="bio-section">
+    <h3 i18n="Subheading for My Background section@@aboutMeBackgroundHeading">My Background</h3>
+    <p>{{ bio }}</p> <!-- Dynamic data -->
+  </section>
+
+  <section class="skills-section" *ngIf="skills && skills.length > 0">
+    <h3 i18n="Subheading for Skills section@@aboutMeSkillsHeading">Skills</h3>
+    <ul>
+      <li *ngFor="let skill of skills">{{ skill }}</li> <!-- Dynamic data -->
+    </ul>
+  </section>
+
+  <section class="links-section" *ngIf="socialLinks && socialLinks.length > 0">
+    <h3 i18n="Subheading for Connect with Me section@@aboutMeConnectHeading">Connect with Me</h3>
+    <ul>
+      <li *ngFor="let link of socialLinks">
+        <a [href]="link.url" target="_blank" rel="noopener noreferrer">
+          <i *ngIf="link.iconClass" [class]="link.iconClass"></i>
+          <img *ngIf="link.iconUrl" i18n-alt="Alternative text for social link icon. {{link.name}} is the link name.@@aboutMeSocialLinkIconAlt" [alt]="link.name + ' icon'" class="social-icon-img">
+          {{ link.name }} <!-- Dynamic data -->
+        </a>
+      </li>
+    </ul>
+  </section>
+</div>
