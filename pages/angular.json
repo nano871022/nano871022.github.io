@@ -29,6 +29,9 @@
             "localize": true, // Enable localization for all builds by default
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
+            "polyfills": [
+              "@angular/localize/init"
+            ],
             "inlineStyleLanguage": "scss",
             "assets": [
               {
