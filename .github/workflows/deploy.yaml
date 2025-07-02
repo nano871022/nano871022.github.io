@@ -41,8 +41,8 @@ jobs:
           npm install -g @angular/cli
           npm install
           ng build
-          cp ./pages/src/custom-root/404.html ./pages/dist/pages/browser/
-          cp ./pages/src/custom-root/index.html ./pages/dist/pages/browser/
+          cp ./src/custom-root/404.html ./dist/pages/browser/
+          cp ./src/custom-root/index.html ./dist/pages/browser/
 
    - name: Save in Artifact
      uses: actions/upload-pages-artifact@v3.0.1
