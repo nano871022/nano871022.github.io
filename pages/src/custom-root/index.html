@@ -12,6 +12,9 @@
 
         function redirectToLanguageSpecificPage() {
             const lang = getBrowserLanguage().toLowerCase();
+            // These paths are relative to this index.html's location when deployed.
+            // If this index.html is at the root of the site (e.g., pages/dist/pages/browser/index.html),
+            // then ./en-US/home/ will correctly point to pages/dist/pages/browser/en-US/home/.
             let targetUrl = "./en-US/home/"; // Default to English path
 
             if (lang.startsWith("es")) {
@@ -23,7 +26,6 @@
             // }
 
             // Redirect to the determined URL
-            // These are assumed to be routes handled by the Angular application
             window.location.href = targetUrl;
         }
 
