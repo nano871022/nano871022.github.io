@@ -13,7 +13,17 @@
 
         <div *ngIf="project.architectureDiagramUrl" class="project-image-container">
           <strong i18n="Label for project architecture diagram@@projectDetailArchDiagLabel">Architecture Diagram:</strong><br/>
-          <img [src]="project.architectureDiagramUrl" i18n-alt="Alternative text for project architecture diagram. {{project.name}} is the project name.@@projectDetailArchDiagAlt" [alt]="project.name + ' architecture diagram'" class="project-image">
+          <img
+            [src]="project.architectureDiagramUrl"
+            i18n-alt="Alternative text for project architecture diagram. {{project.name}} is the project name.@@projectDetailArchDiagAlt"
+            [alt]="project.name + ' architecture diagram'"
+            class="project-image clickable-preview"
+            (click)="openImageModal(project.architectureDiagramUrl)"
+            title="Click to zoom image"
+            role="button"
+            tabindex="0"
+            (keydown.enter)="openImageModal(project.architectureDiagramUrl)"
+            (keydown.space)="openImageModal(project.architectureDiagramUrl)">
         </div>
       </div>
 
@@ -29,13 +39,7 @@
             [src]="project.imageUrl"
             i18n-alt="Alternative text for project preview image. {{project.name}} is the project name.@@projectDetailPreviewAlt"
             [alt]="project.name + ' preview'"
-            class="project-image preview-image clickable-preview"
-            (click)="openImageModal(project.imageUrl)"
-            title="Click to zoom image"
-            role="button"
-            tabindex="0"
-            (keydown.enter)="openImageModal(project.imageUrl)"
-            (keydown.space)="openImageModal(project.imageUrl)">
+            class="project-image preview-image">
         </div>
 
         <div *ngIf="project.relatedLinks && project.relatedLinks.length > 0" class="related-links">
