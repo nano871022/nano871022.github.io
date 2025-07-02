@@ -14,11 +14,11 @@
       "sourceRoot": "src",
       "prefix": "app",
       "i18n": {
-        "sourceLocale": "en-US",
+        "sourceLocale": "en_US",
         "locales": {
           "es-ES": {
             "translation": "src/locale/messages.es.xlf"
-            // "baseHref": "/es/" // Example if needed per locale
+             "baseHref": "/es/" 
           }
         }
       },
@@ -26,7 +26,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "localize": true, // Enable localization for all builds by default
+            "localize": true, 
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "polyfills": [
@@ -47,13 +47,10 @@
             "ssr": {
               "entry": "src/server.ts"
             }
-            // Removed i18n block from here
           },
           "configurations": {
             "production": {
-              "localize": true, // Explicitly set for production, or specific locales like ["es-ES", "en-US"]
-                                // If true, it builds all locales defined in project's i18n section.
-                                // If an array of strings, it builds only those specified locales.
+              "localize": true, 
               "budgets": [
                 {
                   "type": "initial",
