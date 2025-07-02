@@ -23,8 +23,32 @@
   height: 80vh; /* Adjust as needed */
   max-width: 1000px; /* Optional: max width */
   max-height: 800px;  /* Optional: max height */
-  display: flex; /* For centering the zoom component if needed */
-  flex-direction: column; /* Stack button and zoom component */
+  display: flex;
+  flex-direction: column;
+}
+
+.zoom-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 0 10px; // Add some spacing around controls
+  gap: 10px; // Space between buttons
+  position: relative; // For z-index if ever needed over the image, though unlikely here
+  z-index: 1010; // Ensure controls are above the image if there's any overlap potential
+}
+
+.zoom-button {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  line-height: 1;
+}
+
+.zoom-button:hover {
+  background-color: #e0e0e0;
 }
 
 .close-button {
