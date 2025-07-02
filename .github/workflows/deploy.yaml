@@ -35,7 +35,10 @@ jobs:
           cd pages
           npm install -g @angular/cli
           npm install
-          npm run build -- --base-href https://${{ github.actor }}.github.io/${{ github.event.repository.name }}/
+          npm run build
+
+   - name: Remove symlinks before upload
+     run: find pages/dist/pages/browser/es-ES -type l 
 
    - name: Remove symlinks before upload
      run: find pages/dist/pages/browser/es-ES -type l -delete
