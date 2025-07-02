@@ -3,7 +3,8 @@ header {
   color: white;
   padding: 0.5em 1em;
   display: flex;
-  justify-content: center; /* Center nav items */
+  justify-content: space-between; /* Space between nav and switcher */
+  align-items: center; /* Vertically align items */
 }
 nav ul {
   list-style-type: none;
@@ -25,4 +26,19 @@ nav ul li a:hover {
 .active-link {
   font-weight: bold;
   border-bottom: 2px solid #fff; /* Or any other style for active link */
+}
+
+.language-switcher a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5em 0.75em;
+  border: 1px solid white;
+  border-radius: 4px;
+  margin-left: 1em; /* Add some space from the nav */
+}
+
+.language-switcher a:hover {
+  background-color: white;
+  color: #333;
+  text-decoration: none;
 }
