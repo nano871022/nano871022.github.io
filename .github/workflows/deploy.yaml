@@ -56,7 +56,7 @@ jobs:
   if: success()
   
   runs-on: ubuntu-latest
-  environment: PROD
+  environment: github-pages
     
   concurrency:
     group: prepare-${{ github.ref }}
