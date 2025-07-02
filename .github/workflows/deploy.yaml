@@ -38,16 +38,16 @@ jobs:
           npm run build
 
    - name: Remove symlinks before upload
-     run: find pages/dist/pages/browser/es-ES -type l 
+     run: find pages/dist/pages/browser/ -type l 
 
    - name: Remove symlinks before upload
-     run: find pages/dist/pages/browser/es-ES -type l -delete
+     run: find pages/dist/pages/browser/ -type l -delete
 
    - name: Save in Artifact
      uses: actions/upload-artifact@4.6.2
      with: 
       name: build-page-${{ github.actor }}
-      path: pages/dist/pages/browser/es-ES
+      path: pages/dist/pages/browser/
    
  deploy-pages:
  
