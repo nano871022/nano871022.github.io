@@ -42,3 +42,37 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+
+.project-detail-layout {
+  display: flex;
+  flex-wrap: wrap; // Allow wrapping on smaller screens if necessary
+}
+
+.main-content {
+  flex: 2; // Takes twice the space of aside
+  padding-right: 20px; // Space between main content and aside
+}
+
+aside {
+  flex: 1; // Takes one part of the space
+  // Additional styling for aside can go here if needed
+  // For example, if you want to ensure it doesn't get too narrow:
+  // min-width: 250px;
+}
+
+// Responsive adjustments: On smaller screens, stack them
+@media (max-width: 768px) {
+  .project-detail-layout {
+    flex-direction: column;
+  }
+
+  .main-content {
+    padding-right: 0; // Remove padding when stacked
+    margin-bottom: 20px; // Add some space below main content when stacked
+  }
+
+  aside {
+    // Reset flex properties if needed, or adjust width
+    flex-basis: 100%; // Make aside take full width when stacked
+  }
+}
