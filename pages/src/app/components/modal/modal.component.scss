@@ -1,0 +1,71 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; // Ensure it's on top
+  cursor: pointer; // Indicates the overlay can be clicked to close
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  cursor: default; // Reset cursor for the content area
+  width: 80vw; /* Adjust as needed */
+  height: 80vh; /* Adjust as needed */
+  max-width: 1000px; /* Optional: max width */
+  max-height: 800px;  /* Optional: max height */
+  display: flex; /* For centering the zoom component if needed */
+  flex-direction: column; /* Stack button and zoom component */
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  z-index: 1010; // Above the zoom content
+}
+
+.close-button:hover {
+  color: #000;
+}
+
+/* Styling for the ngx-image-zoom component within the modal */
+:host ::ng-deep .ngx-zoom-container { /* Using :host ::ng-deep for component style encapsulation */
+  width: 100%;
+  height: calc(100% - 30px); /* Adjust if close button takes space or if padding is an issue */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:host ::ng-deep .ngx-zoom-container > lib-ngx-image-zoom {
+  width: 100% !important; /* Ensure it fills the container */
+  height: 100% !important;
+}
+
+:host ::ng-deep .ngx-zoom-container .ngxImageZoomContainer > img {
+  object-fit: contain !important; /* Ensure the thumb image respects aspect ratio */
+  width: 100% !important;
+  height: 100% !important;
+}
+
+:host ::ng-deep .ngxImageZoomFullContainer > img {
+  object-fit: contain !important; /* Ensure the zoomed image respects aspect ratio */
+  /* Let the library handle width/height for the zoomed image based on magnification */
+}
