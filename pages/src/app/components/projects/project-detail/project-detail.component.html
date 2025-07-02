@@ -1,4 +1,4 @@
-<section>
+<section class="project-detail-container">
   <div *ngIf="project$ | async as project; else loadingOrNotFound">
     <button (click)="goBack()" i18n="Button to navigate back to the projects list@@projectDetailBackButton">Back to List</button>
     <div class="project-detail-layout">
@@ -11,10 +11,6 @@
           <strong i18n="Label for technologies list in project detail@@projectDetailTechLabel">Technologies:</strong> {{ project.technologies.join(', ') }}
         </div>
 
-        <div *ngIf="project.repoUrl">
-          <strong i18n="Label for project repository link@@projectDetailRepoLabel">Repository:</strong> <a [href]="project.repoUrl" target="_blank">{{ project.repoUrl }}</a>
-        </div>
-
         <div *ngIf="project.architectureDiagramUrl" class="project-image-container">
           <strong i18n="Label for project architecture diagram@@projectDetailArchDiagLabel">Architecture Diagram:</strong><br/>
           <img [src]="project.architectureDiagramUrl" i18n-alt="Alternative text for project architecture diagram. {{project.name}} is the project name.@@projectDetailArchDiagAlt" [alt]="project.name + ' architecture diagram'" class="project-image">
@@ -22,9 +18,14 @@
       </div>
 
       <aside>
+        <div *ngIf="project.repoUrl" class="repo-link-container">
+          <strong i18n="Label for project repository link@@projectDetailRepoLabel">Repository:</strong>
+          <a [href]="project.repoUrl" target="_blank">{{ project.repoUrl }}</a>
+        </div>
+
         <div *ngIf="project.imageUrl" class="project-image-container">
           <strong i18n="Label for project preview image@@projectDetailPreviewLabel">Preview:</strong><br/>
-          <img [src]="project.imageUrl" i18n-alt="Alternative text for project preview image. {{project.name}} is the project name.@@projectDetailPreviewAlt" [alt]="project.name + ' preview'" class="project-image">
+          <img [src]="project.imageUrl" i18n-alt="Alternative text for project preview image. {{project.name}} is the project name.@@projectDetailPreviewAlt" [alt]="project.name + ' preview'" class="project-image preview-image">
         </div>
 
         <div *ngIf="project.relatedLinks && project.relatedLinks.length > 0" class="related-links">
