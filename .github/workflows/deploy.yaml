@@ -6,6 +6,11 @@ on:
     branches:
       - master
 
+permissions:
+   contents: write
+   pages: write
+   id-token: write
+
 jobs:
  
  build-pages:
@@ -48,15 +53,11 @@ jobs:
  deploy-pages:
  
   needs:  build-pages
-  permissions:
-   contents: write
-   pages: write
-   id-token: write
-  
+  environment: github-pages
   if: success()
   
   runs-on: ubuntu-latest
-  environment: github-pages
+  
     
   concurrency:
     group: prepare-${{ github.ref }}
