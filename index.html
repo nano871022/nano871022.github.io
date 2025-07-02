@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script type="text/javascript">
+        function getBrowserLanguage() {
+            return (navigator.languages && navigator.languages.length) ? navigator.languages[0] : (navigator.language || navigator.userLanguage);
+        }
+
+        function redirectToLanguageSpecificPage() {
+            const lang = getBrowserLanguage().toLowerCase();
+            let targetUrl = "./en-US/home/"; // Default to English path
+
+            if (lang.startsWith("es")) {
+                targetUrl = "./es-ES/home/";
+            }
+            // Add more language checks here if needed in the future
+            // else if (lang.startsWith("fr")) {
+            //     targetUrl = "./fr-FR/home/";
+            // }
+
+            // Redirect to the determined URL
+            // These are assumed to be routes handled by the Angular application
+            window.location.href = targetUrl;
+        }
+
+        // Perform the redirection when the script loads
+        redirectToLanguageSpecificPage();
+    </script>
+</head>
+<body>
+    <p>Please wait while we redirect you to the correct language version of our site...</p>
+    <p>If you are not redirected automatically, please try one of the following links:</p>
+    <ul>
+        <li><a href="./en-US/home/">English</a></li>
+        <li><a href="./es-ES/home/">Español</a></li>
+    </ul>
+</body>
+</html>
