@@ -28,7 +28,11 @@ export class ModalComponent implements OnInit {
 
   // Optional: Close modal on Escape key press
   @HostListener('document:keydown.escape', ['$event'])
-  onKeydownHandler(event: KeyboardEvent) {
+  onKeydownHandler(event: Event) { // Temporarily change to Event to see if it compiles, then cast
+    const keyboardEvent = event as KeyboardEvent;
+    // We expect 'escape' to be handled by the decorator, but if we needed to check:
+    // if (keyboardEvent.key === 'Escape') {
     this.modalService.close();
+    // }
   }
 }
