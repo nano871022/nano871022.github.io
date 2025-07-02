@@ -41,9 +41,8 @@ jobs:
      run: find pages/dist/pages/browser/ -type l -delete
 
    - name: Save in Artifact
-     uses: actions/upload-artifact@4.6.2
+     uses: actions/upload-pages-artifact@3
      with: 
-      name: build-page-${{ github.actor }}
       path: pages/dist/pages/browser/
    
  deploy-pages:
@@ -67,8 +66,6 @@ jobs:
 
    - name: deploy to github pages
      uses: actions/deploy-pages@v4
-     with:
-      artifact_name: build-page-${{ github.actor }}
     
    - name: finished
      run: echo "### DEPLOYED ::rocket::" >> $GITHUB_STEP_SUMMARY
