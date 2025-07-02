@@ -37,6 +37,9 @@ jobs:
           npm install
           npm run build -- --base-href https://${{ github.actor }}.github.io/${{ github.event.repository.name }}/
 
+   - name: Remove symlinks before upload
+     run: find pages/dist/pages/browser -type l -delete
+
    - name: Save in Artifact
      uses: actions/upload-artifact@4.6.2
      with: 
