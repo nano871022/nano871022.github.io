@@ -41,7 +41,7 @@ jobs:
      run: find pages/dist/pages/browser/ -type l -delete
 
    - name: Save in Artifact
-     uses: actions/upload-pages-artifact@3
+     uses: actions/upload-pages-artifact@v3
      with: 
       path: pages/dist/pages/browser/
    
