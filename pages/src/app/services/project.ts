@@ -15,7 +15,7 @@ export class ProjectService {
       technologies: ['Android', 'Gradle','Kotlin', 'Composable', 'Materia-UI-3', 'GitHub Actions','GCP'],
       repoUrl: 'https://github.com/nano871022/CR-Alameda181', // Replace with actual URL
       imageUrl: 'assets/images/portfolio-preview.jpg', // Example path
-      architectureDiagramUrl: 'assets/diagrams/portfolio-architecture.png', // Example path
+      architectureDiagramUrl: 'assets/diagrams/cralameda181-architecture.png', // Example path
       status: 'in-progress',
       relatedLinks: [
         { name: 'Wiki', url: 'https://github.com/nano871022/CR-Alameda181/wiki', iconUrl: 'https://lh5.googleusercontent.com/uAApEStdmEhUTsgT6RcFJU-ivfeQkVl4ZSjdfoEXlihHIKpg-a0mqO61ZaqiabVbMVVsw_puslrw7wFbIQAneUuidvColA-j-te_foRB70e69ohp-oS2o639BJt7PZDC2tq3rIMLIT4=w16383' },
