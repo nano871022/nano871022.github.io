@@ -14,7 +14,7 @@ export class ProjectService {
       description: 'CR-Alameda181 aims to enhance the daily management experience for residents and administrators of the Alameda 181 complex by providing a centralized digital platform for:\nManaging community schedules\nAccessing important documents via Google Drive\nViewing service availability and usage\nVisualizing community activity trends\nDisplaying application information and support details\nThe app emphasizes user-friendliness , information accessibility , and efficient resource management tailored to a residential context.',
       technologies: ['Android', 'Gradle','Kotlin', 'Composable', 'Materia-UI-3', 'GitHub Actions','GCP'],
       repoUrl: 'https://github.com/nano871022/CR-Alameda181', // Replace with actual URL
-      imageUrl: 'assets/images/portfolio-preview.jpg', // Example path
+      imageUrl: 'assets/images/cralameda.png', // Example path
       architectureDiagramUrl: 'assets/diagrams/cralameda181-architecture.png', // Example path
       status: 'in-progress',
       relatedLinks: [
