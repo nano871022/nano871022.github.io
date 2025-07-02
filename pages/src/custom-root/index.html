@@ -15,10 +15,10 @@
             // These paths are relative to this index.html's location when deployed.
             // If this index.html is at the root of the site (e.g., pages/dist/pages/browser/index.html),
             // then ./en-US/home/ will correctly point to pages/dist/pages/browser/en-US/home/.
-            let targetUrl = "./en-US/home/"; // Default to English path
+            let targetUrl = "./en/home/"; // Default to English path
 
             if (lang.startsWith("es")) {
-                targetUrl = "./es-ES/home/";
+                targetUrl = "./es/home/";
             }
             // Add more language checks here if needed in the future
             // else if (lang.startsWith("fr")) {
@@ -37,8 +37,8 @@
     <p>Please wait while we redirect you to the correct language version of our site...</p>
     <p>If you are not redirected automatically, please try one of the following links:</p>
     <ul>
-        <li><a href="./en-US/home/">English</a></li>
-        <li><a href="./es-ES/home/">Español</a></li>
+        <li><a href="./en/home/">English</a></li>
+        <li><a href="./es/home/">Español</a></li>
     </ul>
 </body>
 </html>
