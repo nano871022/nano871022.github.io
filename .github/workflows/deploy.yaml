@@ -44,7 +44,7 @@ jobs:
      uses: actions/upload-artifact@4.6.2
      with: 
       name: build-page-${{ github.actor }}
-      path: pages/dist/pages/browser
+      path: pages/dist/pages/browser/es-ES
    
  deploy-pages:
  
