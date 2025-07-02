@@ -14,11 +14,14 @@
       "sourceRoot": "src",
       "prefix": "app",
       "i18n": {
-        "sourceLocale": "en-US",
+        "sourceLocale": {
+          "code": "en",
+          "subPath": "en"
+        },
         "locales": {
           "es-ES": {
-              "translation": "src/locale/messages.es.xlf",
-             "baseHref": "/es-ES/" 
+            "translation": "src/locale/messages.es.xlf",
+            "subPath": "es"
           }
         }
       },
@@ -27,7 +30,7 @@
           "builder": "@angular/build:application",
           "options": {
             "preserveSymlinks": false,
-            "localize": true, 
+            "localize": ["en", "es-ES"],
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "polyfills": [
@@ -56,7 +59,7 @@
           },
           "configurations": {
             "production": {
-              "localize": true, 
+              "localize": ["en", "es-ES"],
               "budgets": [
                 {
                   "type": "initial",
