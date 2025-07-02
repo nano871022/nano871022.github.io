@@ -40,7 +40,7 @@ jobs:
           cd pages
           npm install -g @angular/cli
           npm install
-          npm run build
+          ng build
 
    #- name: Remove symlinks before upload
      #run: find pages/dist/pages -type l -delete
