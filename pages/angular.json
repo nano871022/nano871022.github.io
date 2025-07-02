@@ -26,6 +26,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "preserveSymlinks": false,
             "localize": true, 
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
