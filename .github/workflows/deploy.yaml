@@ -54,7 +54,8 @@ jobs:
  deploy-pages:
  
   needs:  build-pages
-  environment: github-pages
+  environment:
+   name: github-pages
   if: success()
   
   runs-on: ubuntu-latest
