@@ -5,11 +5,17 @@ import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { Project, ProjectRelatedLink } from '../../../models/project.model';
 import { ProjectService } from '../../../services/project';
+import { ModalService } from '../../modal/modal.service'; // Import ModalService
+
+// NgxImageZoomModule is now only needed by ModalComponent, not directly here.
+// If ProjectDetailComponent was not standalone and part of an NgModule,
+// NgxImageZoomModule would typically be in that NgModule's imports.
+// Since both are standalone, ModalComponent imports NgxImageZoomModule itself.
 
 @Component({
   selector: 'app-project-detail',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule], // Removed NgxImageZoomModule, it's in ModalComponent
   templateUrl: './project-detail.component.html',
   styleUrls: ['./project-detail.component.scss']
 })
@@ -20,6 +26,7 @@ export class ProjectDetailComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private projectService = inject(ProjectService);
   private location = inject(Location);
+  private modalService = inject(ModalService); // Inject ModalService
 
   ngOnInit(): void {
     this.project$ = this.route.paramMap.pipe(
@@ -43,5 +50,11 @@ export class ProjectDetailComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  openImageModal(imageUrl: string | undefined): void {
+    if (imageUrl) {
+      this.modalService.open(imageUrl);
+    }
   }
 }

@@ -25,7 +25,17 @@
 
         <div *ngIf="project.imageUrl" class="project-image-container">
           <strong i18n="Label for project preview image@@projectDetailPreviewLabel">Preview:</strong><br/>
-          <img [src]="project.imageUrl" i18n-alt="Alternative text for project preview image. {{project.name}} is the project name.@@projectDetailPreviewAlt" [alt]="project.name + ' preview'" class="project-image preview-image">
+          <img
+            [src]="project.imageUrl"
+            i18n-alt="Alternative text for project preview image. {{project.name}} is the project name.@@projectDetailPreviewAlt"
+            [alt]="project.name + ' preview'"
+            class="project-image preview-image clickable-preview"
+            (click)="openImageModal(project.imageUrl)"
+            title="Click to zoom image"
+            role="button"
+            tabindex="0"
+            (keydown.enter)="openImageModal(project.imageUrl)"
+            (keydown.space)="openImageModal(project.imageUrl)">
         </div>
 
         <div *ngIf="project.relatedLinks && project.relatedLinks.length > 0" class="related-links">

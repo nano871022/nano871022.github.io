@@ -29,6 +29,19 @@
   object-fit: cover; /* Ensures the image covers the area without distortion */
 }
 
+.clickable-preview {
+  cursor: zoom-in;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.clickable-preview:hover,
+.clickable-preview:focus {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  outline: none; /* Remove default focus outline if custom is preferred or not needed */
+}
+
+
 .repo-link-container {
   margin-bottom: 15px; /* Add some space below the repo link */
   text-align: right; /* Aligns the link to the right */

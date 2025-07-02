@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "ngx-image-zoom": "^3.0.0"
+  }
+}
