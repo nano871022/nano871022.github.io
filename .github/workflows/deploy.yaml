@@ -62,9 +62,6 @@ jobs:
     group: prepare-${{ github.ref }}
     cancel-in-progress: true
 
-  environment:
-   name: github-pages
-
   steps:
 
    - name: deploy to github pages
