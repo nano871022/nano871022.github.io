@@ -1,46 +1,46 @@
 <section>
-<div *ngIf="project$ | async as project; else loadingOrNotFound">
-  <button (click)="goBack()" i18n="Button to navigate back to the projects list@@projectDetailBackButton">Back to List</button>
-  <h2>{{ project.name }} <span class="project-status">({{ project.status }})</span></h2> <!-- Dynamic data -->
+  <div *ngIf="project$ | async as project; else loadingOrNotFound">
+    <button (click)="goBack()" i18n="Button to navigate back to the projects list@@projectDetailBackButton">Back to List</button>
+    <h2>{{ project.name }} <span class="project-status">({{ project.status }})</span></h2> <!-- Dynamic data -->
 
-  <p>{{ project.description }}</p> <!-- Dynamic data -->
+    <p>{{ project.description }}</p> <!-- Dynamic data -->
 
-  <div *ngIf="project.technologies && project.technologies.length > 0">
-    <strong i18n="Label for technologies list in project detail@@projectDetailTechLabel">Technologies:</strong> {{ project.technologies.join(', ') }}
-  </div>
+    <div *ngIf="project.technologies && project.technologies.length > 0">
+      <strong i18n="Label for technologies list in project detail@@projectDetailTechLabel">Technologies:</strong> {{ project.technologies.join(', ') }}
+    </div>
 
-  <div *ngIf="project.repoUrl">
-    <strong i18n="Label for project repository link@@projectDetailRepoLabel">Repository:</strong> <a [href]="project.repoUrl" target="_blank">{{ project.repoUrl }}</a>
-  </div>
+    <div *ngIf="project.repoUrl">
+      <strong i18n="Label for project repository link@@projectDetailRepoLabel">Repository:</strong> <a [href]="project.repoUrl" target="_blank">{{ project.repoUrl }}</a>
+    </div>
 
-  <div *ngIf="project.architectureDiagramUrl" class="project-image-container">
-    <strong i18n="Label for project architecture diagram@@projectDetailArchDiagLabel">Architecture Diagram:</strong><br/>
-    <img [src]="project.architectureDiagramUrl" i18n-alt="Alternative text for project architecture diagram. {{project.name}} is the project name.@@projectDetailArchDiagAlt" [alt]="project.name + ' architecture diagram'" class="project-image">
-  </div>
+    <div *ngIf="project.architectureDiagramUrl" class="project-image-container">
+      <strong i18n="Label for project architecture diagram@@projectDetailArchDiagLabel">Architecture Diagram:</strong><br/>
+      <img [src]="project.architectureDiagramUrl" i18n-alt="Alternative text for project architecture diagram. {{project.name}} is the project name.@@projectDetailArchDiagAlt" [alt]="project.name + ' architecture diagram'" class="project-image">
+    </div>
 
-  
+  </div>    
   <aside>
- <div *ngIf="project.imageUrl" class="project-image-container">
-    <strong i18n="Label for project preview image@@projectDetailPreviewLabel">Preview:</strong><br/>
-    <img [src]="project.imageUrl" i18n-alt="Alternative text for project preview image. {{project.name}} is the project name.@@projectDetailPreviewAlt" [alt]="project.name + ' preview'" class="project-image">
-  </div>
     
-  <div *ngIf="project.relatedLinks && project.relatedLinks.length > 0" class="related-links">
-    <strong i18n="Label for related links section@@projectDetailRelatedLinksLabel">Related Links:</strong>
-    <ul>
-      <li *ngFor="let link of project.relatedLinks">
-        <a [href]="link.url" target="_blank">
-          <img *ngIf="link.iconUrl" [src]="link.iconUrl" i18n-alt="Alternative text for related link icon. {{link.name}} is the link name.@@projectDetailRelatedLinkIconAlt" [alt]="link.name + ' icon'" class="link-icon">
-          {{ link.name }} <!-- Dynamic data (link name) -->
-        </a>
-      </li>
-    </ul>
-  </div>
-</div>  
-
-</aside>
+     <div *ngIf="project.imageUrl" class="project-image-container">
+        <strong i18n="Label for project preview image@@projectDetailPreviewLabel">Preview:</strong><br/>
+        <img [src]="project.imageUrl" i18n-alt="Alternative text for project preview image. {{project.name}} is the project name.@@projectDetailPreviewAlt" [alt]="project.name + ' preview'" class="project-image">
+      </div>
+    
+      <div *ngIf="project.relatedLinks && project.relatedLinks.length > 0" class="related-links">
+        <strong i18n="Label for related links section@@projectDetailRelatedLinksLabel">Related Links:</strong>
+        <ul>
+          <li *ngFor="let link of project.relatedLinks">
+            <a [href]="link.url" target="_blank">
+              <img *ngIf="link.iconUrl" [src]="link.iconUrl" i18n-alt="Alternative text for related link icon. {{link.name}} is the link name.@@projectDetailRelatedLinkIconAlt" [alt]="link.name + ' icon'" class="link-icon">
+                {{ link.name }} <!-- Dynamic data (link name) -->
+            </a>
+          </li>
+        </ul>
+      </div>
+    
+  </aside>
   <ng-template #loadingOrNotFound>
-  <p *ngIf="projectNotFound" i18n="Message displayed when a project is not found@@projectDetailNotFound">Project not found.</p>
-  <p *ngIf="!projectNotFound" i18n="Message displayed while project details are loading@@projectDetailLoading">Loading project details...</p>
-</ng-template>
+    <p *ngIf="projectNotFound" i18n="Message displayed when a project is not found@@projectDetailNotFound">Project not found.</p>
+    <p *ngIf="!projectNotFound" i18n="Message displayed while project details are loading@@projectDetailLoading">Loading project details...</p>
+  </ng-template>
 </section>
