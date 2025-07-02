@@ -38,9 +38,6 @@ jobs:
           npm run build
 
    - name: Remove symlinks before upload
-     run: find pages/dist/pages/browser/ -type l 
-
-   - name: Remove symlinks before upload
      run: find pages/dist/pages/browser/ -type l -delete
 
    - name: Save in Artifact
