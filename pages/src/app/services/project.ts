@@ -18,8 +18,8 @@ export class ProjectService {
       architectureDiagramUrl: 'assets/diagrams/cralameda181-architecture.png', // Example path
       status: 'in-progress',
       relatedLinks: [
-        { name: 'Wiki', url: 'https://github.com/nano871022/CR-Alameda181/wiki', iconUrl: 'https://lh5.googleusercontent.com/uAApEStdmEhUTsgT6RcFJU-ivfeQkVl4ZSjdfoEXlihHIKpg-a0mqO61ZaqiabVbMVVsw_puslrw7wFbIQAneUuidvColA-j-te_foRB70e69ohp-oS2o639BJt7PZDC2tq3rIMLIT4=w16383' },
-        { name: 'GitHub Actions', url: 'cralameda181.japl.dev', iconUrl: 'https://lh5.googleusercontent.com/uAApEStdmEhUTsgT6RcFJU-ivfeQkVl4ZSjdfoEXlihHIKpg-a0mqO61ZaqiabVbMVVsw_puslrw7wFbIQAneUuidvColA-j-te_foRB70e69ohp-oS2o639BJt7PZDC2tq3rIMLIT4=w16383'  }
+        { name: 'Wiki', url: 'https://github.com/nano871022/CR-Alameda181/wiki', iconUrl: 'assets/images/cralameda.png' },
+        { name: 'GitHub Actions', url: 'https://cralameda181.japl.dev', iconUrl: 'assets/images/cralameda.png'  }
       ]
     },
     {
