@@ -41,9 +41,8 @@ jobs:
           npm install -g @angular/cli
           npm install
           ng build
-
-   #- name: Remove symlinks before upload
-     #run: find pages/dist/pages -type l -delete
+          cp ./pages/src/custom-root/404.html ./pages/dist/pages/browser/
+          cp ./pages/src/custom-root/index.html ./pages/dist/pages/browser/
 
    - name: Save in Artifact
      uses: actions/upload-pages-artifact@v3.0.1
