@@ -57,7 +57,8 @@ jobs:
   if: success()
   
   runs-on: ubuntu-latest
-  
+  environment: PROD
+    
   concurrency:
     group: prepare-${{ github.ref }}
     cancel-in-progress: true
