@@ -42,13 +42,14 @@ jobs:
           npm install
           npm run build
 
-   - name: Remove symlinks before upload
-     run: find pages/dist/pages -type l -delete
+   #- name: Remove symlinks before upload
+     #run: find pages/dist/pages -type l -delete
 
    - name: Save in Artifact
-     uses: actions/upload-pages-artifact@v3
+     uses: actions/upload-pages-artifact@v3.0.1
      with: 
-      path: pages/dist/pages
+      name: ${{ github.actor }}-pages
+      path: pages/dist/pages/browser
    
  deploy-pages:
  
@@ -67,6 +68,8 @@ jobs:
 
    - name: deploy to github pages
      uses: actions/deploy-pages@v4
+     with:
+      artifact_name: ${{ github.actor }}-pages
     
    - name: finished
      run: echo "### DEPLOYED ::rocket::" >> $GITHUB_STEP_SUMMARY
