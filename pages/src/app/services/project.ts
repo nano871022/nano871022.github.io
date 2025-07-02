@@ -10,16 +10,16 @@ export class ProjectService {
   private projects: Project[] = [
     {
       id: '1',
-      name: 'My Awesome Portfolio Website',
-      description: 'The very website you are looking at! Built with Angular and deployed with GitHub Actions.',
-      technologies: ['Angular', 'TypeScript', 'HTML', 'SCSS', 'GitHub Actions'],
-      repoUrl: 'https://github.com/your-username/your-repo-name', // Replace with actual URL
+      name: 'CR-Alameda181',
+      description: 'CR-Alameda181 aims to enhance the daily management experience for residents and administrators of the Alameda 181 complex by providing a centralized digital platform for:\nManaging community schedules\nAccessing important documents via Google Drive\nViewing service availability and usage\nVisualizing community activity trends\nDisplaying application information and support details\nThe app emphasizes user-friendliness , information accessibility , and efficient resource management tailored to a residential context.',
+      technologies: ['Android', 'Gradle','Kotlin', 'Composable', 'Materia-UI-3', 'GitHub Actions','GCP'],
+      repoUrl: 'https://github.com/nano871022/CR-Alameda181', // Replace with actual URL
       imageUrl: 'assets/images/portfolio-preview.jpg', // Example path
       architectureDiagramUrl: 'assets/diagrams/portfolio-architecture.png', // Example path
       status: 'in-progress',
       relatedLinks: [
-        { name: 'Angular Documentation', url: 'https://angular.dev', iconUrl: 'assets/icons/angular-logo.svg' },
-        { name: 'GitHub Actions', url: 'https://github.com/features/actions' }
+        { name: 'Wiki', url: 'https://github.com/nano871022/CR-Alameda181/wiki', iconUrl: 'https://lh5.googleusercontent.com/uAApEStdmEhUTsgT6RcFJU-ivfeQkVl4ZSjdfoEXlihHIKpg-a0mqO61ZaqiabVbMVVsw_puslrw7wFbIQAneUuidvColA-j-te_foRB70e69ohp-oS2o639BJt7PZDC2tq3rIMLIT4=w16383' },
+        { name: 'GitHub Actions', url: 'cralameda181.japl.dev', iconUrl: 'https://lh5.googleusercontent.com/uAApEStdmEhUTsgT6RcFJU-ivfeQkVl4ZSjdfoEXlihHIKpg-a0mqO61ZaqiabVbMVVsw_puslrw7wFbIQAneUuidvColA-j-te_foRB70e69ohp-oS2o639BJt7PZDC2tq3rIMLIT4=w16383'  }
       ]
     },
     {
