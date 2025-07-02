@@ -43,7 +43,7 @@ jobs:
    - name: Save in Artifact
      uses: actions/upload-pages-artifact@v3
      with: 
-      path: pages/dist/pages/browser/
+      path: pages/dist/pages/
    
  deploy-pages:
  
