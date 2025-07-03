@@ -24,85 +24,64 @@
   max-height: 800px;  /* Optional: max height */
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  // background-color: white; // Already set on .modal-content, which is good.
+  // overflow: hidden; // modal-content itself doesn't need to clip, the zoom-image-container will.
 }
 
-// This is the container we added in the HTML to wrap lib-ngx-image-zoom
+// This is the div that wraps lib-ngx-image-zoom and acts as the viewport.
 .zoom-image-container {
-  flex-grow: 1;
-  display: flex;
+  flex-grow: 1; // Take available space in the modal-content
+  position: relative; // For positioning children or pseudo-elements if needed
+  overflow: hidden; // Crucial: This clips the panned/zoomed image.
+  background-color: white; // Solid background to prevent underlying page content showing.
+                           // Also helps if the image itself is transparent.
+  display: flex; // To center the lib-ngx-image-zoom if it's smaller than container
   justify-content: center;
   align-items: center;
-  overflow: hidden;
-  position: relative;
-  background-color: white; // Ensure this viewport for zooming/panning has a solid background
 }
 
-/* Styling for the ngx-image-zoom component within the modal */
-// ngx-zoom-override-container is the new containerClass for lib-ngx-image-zoom
-:host ::ng-deep .ngx-zoom-override-container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative; // Good for stacking context
+// Styles for the lib-ngx-image-zoom component element itself (our panTargetElement)
+// We reference it in HTML with #ngxImageZoom, and it's a child of .zoom-image-container
+// No specific class needed here if default display/sizing of lib-ngx-image-zoom is okay.
+// It's set to width:100%, height:100% via [style] binding in HTML.
+// Its internal imgStyle also has display:block.
 
-  // Styles for the thumbnail image, if needed (usually an <img> tag)
-  > img {
-    object-fit: contain !important;
-    width: 100% !important;
-    height: 100% !important;
-    // ngx-image-zoom should handle hiding this when the full image is shown.
-    // If ghosting persists, one might try:
-    // opacity: 1; // and then change opacity based on zoom state if library doesn't.
-  }
-
-  // This is typically the container for the full-resolution _zoomed_ image.
-  .ngxImageZoomFullContainer {
-    background-color: white !important; // Crucial for transparent PNGs to prevent ghosting.
-    // Ensure it covers the area completely.
-    position: absolute; // Often these are absolutely positioned by the library.
-    top: 0;
-    left: 0;
-    width: 100%; // Or sized by the library
-    height: 100%; // Or sized by the library
-
-    > img {
-      object-fit: contain !important;
-      // Library handles actual size via transform: scale.
-      // Our panning transform will be applied to this img element via JS.
-      // transform-origin: top left; // Set in JS for consistency.
-    }
-  }
-}
-
-
-// Remove old ngx-zoom-container rules if they are no longer accurate due to new containerClass
 /*
-:host ::ng-deep .ngx-zoom-container {
-  width: 100%;
-  height: calc(100% - 30px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-:host ::ng-deep .ngx-zoom-container > lib-ngx-image-zoom {
+  Revisiting ngx-image-zoom internal styling.
+  The `containerClass` on `<lib-ngx-image-zoom>` is now "ngx-zoom-lib-internal-container".
+  This class is applied to the div *inside* lib-ngx-image-zoom that contains the thumb and full images.
+*/
+:host ::ng-deep .ngx-zoom-lib-internal-container {
+  // This is the direct container for the thumb and full images created by ngx-image-zoom.
+  // It should fill the lib-ngx-image-zoom host element.
   width: 100% !important;
   height: 100% !important;
+  display: flex !important; // Ensure it behaves as expected
+  justify-content: center !important;
+  align-items: center !important;
+
+  > img {
+    // This is the thumbnail image. ngx-image-zoom should hide this when zoomed.
+    // If ghosting of the thumb occurs, this is where to force opacity:0 or display:none
+    // when currentMagnification > 1 (would require a class binding from TS).
+  }
+
+  .ngxImageZoomFullContainer {
+    // This is the container for the full-resolution *zoomed* image.
+    // If the image is transparent and ghosting of the page background (not thumb) occurs,
+    // this element (or its child img) might need a background color.
+    // However, .zoom-image-container already has a white background.
+    // If the library creates the zoomed image *outside* this flow or with transparency, this might be needed.
+    // For now, relying on .zoom-image-container's background.
+    // background-color: white; // Potentially add if ghosting persists.
+  }
 }
 
-:host ::ng-deep .ngx-zoom-container .ngxImageZoomContainer > img {
-  object-fit: contain !important;
-  width: 100% !important;
-  height: 100% !important;
-}
-
-:host ::ng-deep .ngxImageZoomFullContainer > img {
- object-fit: contain !important;
-}
+// Remove completely obsolete selectors for clarity
+/*
+:host ::ng-deep .ngx-zoom-container { ... }
+:host ::ng-deep .ngx-zoom-container > lib-ngx-image-zoom { ... }
+:host ::ng-deep .ngx-zoom-container .ngxImageZoomContainer > img { ... }
+:host ::ng-deep .ngxImageZoomFullContainer > img { ... }
 */
 
 .zoom-controls {
