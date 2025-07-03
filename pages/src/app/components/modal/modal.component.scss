@@ -24,59 +24,57 @@
   max-height: 800px;  /* Optional: max height */
   display: flex;
   flex-direction: column;
-  // overflow: hidden; // modal-content itself doesn't need to clip, the zoom-image-container will.
+  // overflow: hidden; // .modal-content itself doesn't need to clip, .zoom-image-container will.
 }
 
 // This is the div that wraps lib-ngx-image-zoom and acts as the viewport.
 .zoom-image-container {
-  flex-grow: 1; // Take available space in the modal-content
-  position: relative; // For positioning children or pseudo-elements if needed
+  flex-grow: 1;
+  position: relative;
   overflow: hidden; // Crucial: This clips the panned/zoomed image.
-  background-color: white; // Solid background to prevent underlying page content showing.
-                           // Also helps if the image itself is transparent.
-  display: flex; // To center the lib-ngx-image-zoom if it's smaller than container
+  background-color: white; // Solid background for transparency and preventing see-through.
+  display: flex;
   justify-content: center;
   align-items: center;
+
+  // The lib-ngx-image-zoom element will be a direct child.
+  // It's styled via [style.width.%]="100" and [style.height.%]="100" in HTML.
+  // Its own internal imgStyle is also set in HTML.
 }
 
-// Styles for the lib-ngx-image-zoom component element itself (our panTargetElement)
-// We reference it in HTML with #ngxImageZoom, and it's a child of .zoom-image-container
-// No specific class needed here if default display/sizing of lib-ngx-image-zoom is okay.
-// It's set to width:100%, height:100% via [style] binding in HTML.
-// Its internal imgStyle also has display:block.
-
 /*
-  Revisiting ngx-image-zoom internal styling.
-  The `containerClass` on `<lib-ngx-image-zoom>` is now "ngx-zoom-lib-internal-container".
-  This class is applied to the div *inside* lib-ngx-image-zoom that contains the thumb and full images.
+  Styling for ngx-image-zoom's internal structure.
+  The `containerClass` on `<lib-ngx-image-zoom>` is "ngx-zoom-lib-internal-container".
+  This class is applied to the div *inside* lib-ngx-image-zoom that holds thumb/full images.
 */
 :host ::ng-deep .ngx-zoom-lib-internal-container {
-  // This is the direct container for the thumb and full images created by ngx-image-zoom.
-  // It should fill the lib-ngx-image-zoom host element.
   width: 100% !important;
   height: 100% !important;
-  display: flex !important; // Ensure it behaves as expected
+  display: flex !important;
   justify-content: center !important;
   align-items: center !important;
+  position: relative; // Good for stacking context if library uses absolute for full image.
 
   > img {
-    // This is the thumbnail image. ngx-image-zoom should hide this when zoomed.
-    // If ghosting of the thumb occurs, this is where to force opacity:0 or display:none
-    // when currentMagnification > 1 (would require a class binding from TS).
+    // This is the thumbnail image.
+    // In "toggle" mode, ngx-image-zoom should manage its visibility.
+    // If the thumb still ghosts under the zoomed image, this would be a place to add:
+    // opacity: 0; or display: none; (potentially based on a class indicating zoom is active)
+    // For now, assume library handles it.
   }
 
   .ngxImageZoomFullContainer {
     // This is the container for the full-resolution *zoomed* image.
-    // If the image is transparent and ghosting of the page background (not thumb) occurs,
-    // this element (or its child img) might need a background color.
-    // However, .zoom-image-container already has a white background.
-    // If the library creates the zoomed image *outside* this flow or with transparency, this might be needed.
-    // For now, relying on .zoom-image-container's background.
-    // background-color: white; // Potentially add if ghosting persists.
+    // It should be opaque if the main image has transparency, to prevent the *thumbnail* from showing through.
+    // If .zoom-image-container has a white background, this might only be needed if this container
+    // is not 100% width/height or if the thumbnail is somehow still visible behind it.
+    // Most zoom libraries make this container cover the thumb.
+    // background-color: white; // Add this if the thumbnail is ghosting through transparent zoomed image.
+                               // Test carefully, as it might cover desired transparency relative to .zoom-image-container's bg.
   }
 }
 
-// Remove completely obsolete selectors for clarity
+// Remove or comment out obsolete selectors for clarity
 /*
 :host ::ng-deep .ngx-zoom-container { ... }
 :host ::ng-deep .ngx-zoom-container > lib-ngx-image-zoom { ... }

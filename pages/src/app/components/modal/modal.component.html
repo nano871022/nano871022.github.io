@@ -12,23 +12,21 @@
       <button (click)="zoomOut()" class="zoom-button" title="Zoom Out" i18n-title="Title for zoom out button@@modalZoomOutButtonTitle">-</button>
       <button (click)="zoomIn()" class="zoom-button" title="Zoom In" i18n-title="Title for zoom in button@@modalZoomInButtonTitle">+</button>
     </div>
-    <!-- This div is the viewport for the zoomable/pannable image -->
     <div
       #zoomImageContainer
       class="zoom-image-container"
       [style.cursor]="isPanning ? 'grabbing' : (currentMagnification > minZoom ? 'grab' : 'default')"
     >
       <ng-container *ngIf="imageUrl$ | async as imageUrl">
-        <!-- #ngxImageZoom is used to get a reference to this component's element for panning -->
         <lib-ngx-image-zoom
           #ngxImageZoom
           [thumbImage]="imageUrl"
           [fullImage]="imageUrl"
-          zoomMode="hover" 
+          zoomMode="toggle" <!-- Key change: hover to toggle -->
           [magnification]="currentMagnification"
           [enableScrollZoom]="true"
           [scrollStepSize]="scrollStepSize"
-          containerClass="ngx-zoom-lib-internal-container" 
+          containerClass="ngx-zoom-lib-internal-container"
           imgStyle="object-fit: contain; width: 100%; height: 100%; display: block;"
           [altText]="'Zoomed project image'"
           i18n-altText="Alternative text for zoomed image in modal@@modalZoomedImageAlt"
