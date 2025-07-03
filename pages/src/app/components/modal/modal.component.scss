@@ -24,22 +24,86 @@
   max-height: 800px;  /* Optional: max height */
   display: flex;
   flex-direction: column;
-  overflow: hidden; // Crucial to prevent content spill during pan/zoom
+  overflow: hidden;
+  // background-color: white; // Already set on .modal-content, which is good.
 }
 
-.zoom-image-wrapper {
+// This is the container we added in the HTML to wrap lib-ngx-image-zoom
+.zoom-image-container {
   flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; // This is key for panning to work as expected
-  cursor: grab; // Default cursor when draggable
-  position: relative; // Needed for child absolute positioning or transforms
+  overflow: hidden;
+  position: relative;
+  background-color: white; // Ensure this viewport for zooming/panning has a solid background
 }
 
-.zoom-image-wrapper.panning {
-  cursor: grabbing; // Cursor when actively panning
+/* Styling for the ngx-image-zoom component within the modal */
+// ngx-zoom-override-container is the new containerClass for lib-ngx-image-zoom
+:host ::ng-deep .ngx-zoom-override-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; // Good for stacking context
+
+  // Styles for the thumbnail image, if needed (usually an <img> tag)
+  > img {
+    object-fit: contain !important;
+    width: 100% !important;
+    height: 100% !important;
+    // ngx-image-zoom should handle hiding this when the full image is shown.
+    // If ghosting persists, one might try:
+    // opacity: 1; // and then change opacity based on zoom state if library doesn't.
+  }
+
+  // This is typically the container for the full-resolution _zoomed_ image.
+  .ngxImageZoomFullContainer {
+    background-color: white !important; // Crucial for transparent PNGs to prevent ghosting.
+    // Ensure it covers the area completely.
+    position: absolute; // Often these are absolutely positioned by the library.
+    top: 0;
+    left: 0;
+    width: 100%; // Or sized by the library
+    height: 100%; // Or sized by the library
+
+    > img {
+      object-fit: contain !important;
+      // Library handles actual size via transform: scale.
+      // Our panning transform will be applied to this img element via JS.
+      // transform-origin: top left; // Set in JS for consistency.
+    }
+  }
 }
+
+
+// Remove old ngx-zoom-container rules if they are no longer accurate due to new containerClass
+/*
+:host ::ng-deep .ngx-zoom-container {
+  width: 100%;
+  height: calc(100% - 30px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:host ::ng-deep .ngx-zoom-container > lib-ngx-image-zoom {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+:host ::ng-deep .ngx-zoom-container .ngxImageZoomContainer > img {
+  object-fit: contain !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+:host ::ng-deep .ngxImageZoomFullContainer > img {
+ object-fit: contain !important;
+}
+*/
 
 .zoom-controls {
   display: flex;

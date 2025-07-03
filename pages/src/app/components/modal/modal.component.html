@@ -12,8 +12,12 @@
       <button (click)="zoomOut()" class="zoom-button" title="Zoom Out" i18n-title="Title for zoom out button@@modalZoomOutButtonTitle">-</button>
       <button (click)="zoomIn()" class="zoom-button" title="Zoom In" i18n-title="Title for zoom in button@@modalZoomInButtonTitle">+</button>
     </div>
-    <ng-container *ngIf="imageUrl$ | async as imageUrl">
-      <div #zoomImage class="zoom-image-wrapper" [style.cursor]="currentMagnification > 1 ? 'grab' : 'default'">
+    <div
+      #zoomImageContainer
+      class="zoom-image-container"
+      [style.cursor]="isPanning ? 'grabbing' : (currentMagnification > minZoom ? 'grab' : 'default')"
+    >
+      <ng-container *ngIf="imageUrl$ | async as imageUrl">
         <lib-ngx-image-zoom
           [thumbImage]="imageUrl"
           [fullImage]="imageUrl"
@@ -21,14 +25,16 @@
           [magnification]="currentMagnification"
           [enableScrollZoom]="true"
           [scrollStepSize]="scrollStepSize"
-          containerClass="ngx-zoom-container"
+          [minZoomRatio]="minZoom / currentMagnification"
+          [maxZoomRatio]="maxZoom / currentMagnification"
+          containerClass="ngx-zoom-override-container"
+          imgStyle="object-fit: contain; width: 100%; height: 100%;"
           [altText]="'Zoomed project image'"
           i18n-altText="Alternative text for zoomed image in modal@@modalZoomedImageAlt"
           [style.width.%]="100"
           [style.height.%]="100"
-          imgStyle="object-fit: contain; width: 100%; height: 100%;"
         ></lib-ngx-image-zoom>
-      </div>
-    </ng-container>
+      </ng-container>
+    </div>
   </div>
 </div>
