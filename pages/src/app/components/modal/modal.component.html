@@ -24,11 +24,11 @@
           #ngxImageZoom
           [thumbImage]="imageUrl"
           [fullImage]="imageUrl"
-          zoomMode="hover" <!-- Keep hover for library's internal zoom logic, we pan its container -->
+          zoomMode="hover" 
           [magnification]="currentMagnification"
           [enableScrollZoom]="true"
           [scrollStepSize]="scrollStepSize"
-          containerClass="ngx-zoom-lib-internal-container" <!-- Custom class for internal styling if needed -->
+          containerClass="ngx-zoom-lib-internal-container" 
           imgStyle="object-fit: contain; width: 100%; height: 100%; display: block;"
           [altText]="'Zoomed project image'"
           i18n-altText="Alternative text for zoomed image in modal@@modalZoomedImageAlt"
