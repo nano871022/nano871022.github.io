@@ -182,6 +182,7 @@ export class ModalComponent implements OnInit, OnDestroy, AfterViewInit {
 
   @HostListener('document:keydown.escape', ['$event'])
   onKeydownHandler(event: Event) {
+    const keyboardEvent = event as KeyboardEvent;
     this.modalService.close();
   }
 }
