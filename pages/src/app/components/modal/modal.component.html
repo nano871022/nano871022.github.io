@@ -4,8 +4,8 @@
     (click)="$event.stopPropagation()"
     (mousedown)="onMouseDown($event)"
     (mousemove)="onMouseMove($event)"
-    (mouseup)="onMouseUp()"
-    (mouseleave)="onMouseLeave()"
+    (mouseup)="onMouseUp($event)"
+    (mouseleave)="onMouseLeaveContainer()"
   >
     <button class="close-button" (click)="closeModal()" title="Close" i18n-title="Title for close modal button@@modalCloseButtonTitle">&times;</button>
     <div class="zoom-controls">
@@ -22,7 +22,7 @@
           #ngxImageZoom
           [thumbImage]="imageUrl"
           [fullImage]="imageUrl"
-          zoomMode="toggle" <!-- Key change: hover to toggle -->
+          zoomMode="toggle" 
           [magnification]="currentMagnification"
           [enableScrollZoom]="true"
           [scrollStepSize]="scrollStepSize"
