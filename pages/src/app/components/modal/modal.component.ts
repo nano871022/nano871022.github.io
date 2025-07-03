@@ -121,7 +121,8 @@ export class ModalComponent implements OnInit {
 
 
   @HostListener('document:keydown.escape', ['$event'])
-  onKeydownHandler(event: KeyboardEvent): void {
+  onKeydownHandler(event: Event): void {
+    const keyboarEvent = event as KeyboardEvent;
     this.modalService.close();
   }
 }
