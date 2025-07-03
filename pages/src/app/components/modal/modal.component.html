@@ -1,25 +1,34 @@
 <div *ngIf="showModal$ | async" class="modal-overlay" (click)="closeModal()">
-  <div class="modal-content" (click)="$event.stopPropagation()">
+  <div
+    class="modal-content"
+    (click)="$event.stopPropagation()"
+    (mousedown)="onMouseDown($event)"
+    (mousemove)="onMouseMove($event)"
+    (mouseup)="onMouseUp()"
+    (mouseleave)="onMouseLeave()"
+  >
     <button class="close-button" (click)="closeModal()" title="Close" i18n-title="Title for close modal button@@modalCloseButtonTitle">&times;</button>
     <div class="zoom-controls">
       <button (click)="zoomOut()" class="zoom-button" title="Zoom Out" i18n-title="Title for zoom out button@@modalZoomOutButtonTitle">-</button>
       <button (click)="zoomIn()" class="zoom-button" title="Zoom In" i18n-title="Title for zoom in button@@modalZoomInButtonTitle">+</button>
     </div>
     <ng-container *ngIf="imageUrl$ | async as imageUrl">
-      <lib-ngx-image-zoom
-        [thumbImage]="imageUrl"
-        [fullImage]="imageUrl"
-        zoomMode="hover"
-        [magnification]="currentMagnification"
-        [enableScrollZoom]="true"
-        [scrollStepSize]="scrollStepSize"
-        containerClass="ngx-zoom-container"
-        [altText]="'Zoomed project image'"
-        i18n-altText="Alternative text for zoomed image in modal@@modalZoomedImageAlt"
-        [style.width.%]="100"
-        [style.height.%]="100"
-        imgStyle="object-fit: contain; width: 100%; height: 100%;"
-      ></lib-ngx-image-zoom>
+      <div #zoomImage class="zoom-image-wrapper" [style.cursor]="currentMagnification > 1 ? 'grab' : 'default'">
+        <lib-ngx-image-zoom
+          [thumbImage]="imageUrl"
+          [fullImage]="imageUrl"
+          zoomMode="hover"
+          [magnification]="currentMagnification"
+          [enableScrollZoom]="true"
+          [scrollStepSize]="scrollStepSize"
+          containerClass="ngx-zoom-container"
+          [altText]="'Zoomed project image'"
+          i18n-altText="Alternative text for zoomed image in modal@@modalZoomedImageAlt"
+          [style.width.%]="100"
+          [style.height.%]="100"
+          imgStyle="object-fit: contain; width: 100%; height: 100%;"
+        ></lib-ngx-image-zoom>
+      </div>
     </ng-container>
   </div>
 </div>

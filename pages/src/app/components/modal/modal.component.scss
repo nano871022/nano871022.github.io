@@ -24,7 +24,21 @@
   max-height: 800px;  /* Optional: max height */
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow: hidden; // Crucial to prevent content spill during pan/zoom
+}
+
+.zoom-image-wrapper {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; // This is key for panning to work as expected
+  cursor: grab; // Default cursor when draggable
+  position: relative; // Needed for child absolute positioning or transforms
+}
+
+.zoom-image-wrapper.panning {
+  cursor: grabbing; // Cursor when actively panning
 }
 
 .zoom-controls {
